@@ -1,0 +1,104 @@
+/* column view */
+.two-column-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* display photo */
+.profile-image-wrapper img {
+    width: 60%;
+    margin-left: 150px;
+    margin-top: 10px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* display text */
+.profile-content-wrapper h1 {
+    color: lightseagreen;
+    margin-top: 10px;
+}
+
+.profile-content-wrapper p {
+    font-size: large;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/* resume button design */
+.btn-wrapper {
+    position: relative;
+    display: inline-block;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 13px;
+    position: relative;
+    border-radius: 20px;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s;
+}
+
+.btn:hover {
+    background-color: lightseagreen;
+    font-weight: 600;
+}
+
+.btn:hover .btn-link {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-img {
+    max-width: 15px;
+    height: auto;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.btn:hover .btn-img {
+    opacity: 1;
+    color: white;
+}
+
+/* responsive minimize view */
+@media (max-width: 767px) {
+    .two-column-wrapper {
+        display: block;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image-wrapper img {
+        width: 80%;
+        align-items: center;
+        margin-left: 45px;
+    }
+
+    .profile-content-wrapper h1 {
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .profile-content-wrapper p {
+        font-size: small;
+    }
+}

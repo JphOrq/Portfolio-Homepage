@@ -1,0 +1,88 @@
+/* content wrapper design */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.content-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 150px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* display contact text */
+.profile-content-wrapper h1 {
+    color: lightseagreen;
+    margin-top: 10px;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.profile-content-wrapper img {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    /* Arrange items in a column */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Add spacing below each contact item */
+}
+
+/* Adjust the image size if needed */
+.contact-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+/* Style the email link within .profile-content-wrapper */
+.profile-content-wrapper a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-footer {
+    height: 20vh;
+}
+
+/* Responsive minimize view */
+@media (max-width: 767px) {
+    .main-content {
+        margin-top: 90px;
+    }
+
+    .content-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+        width: fit-content;
+        text-align: center;
+    }
+
+    /* Reduce text size for smaller screens */
+    .profile-content-wrapper h1 {
+        font-size: 30px;
+    }
+
+    .main-footer {
+        margin-top: 120px;
+    }
+}
