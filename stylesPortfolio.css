@@ -2,26 +2,35 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 20px;
+    margin-top: 0;
 }
 
 .container {
     display: grid;
     grid-template-columns: 1fr;
+    position: relative;
 }
 
 
 /* Nav Styles */
 .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     padding: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .left-side {
     display: flex;
 }
 
-.nav-wrapper>.left-side>div {
+.left-side div {
     margin-right: 20px;
     font-size: 0.9em;
     text-transform: uppercase;
@@ -55,11 +64,15 @@ body {
     color: black !important;
 }
 
+/* main content-wrapper */
+.content-wrapper {
+    padding: 20px;
+    margin-top: 100px;
+}
 
 /* Portfolio Styles */
 .portfolio-items-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr, 1fr, 1fr;
 }
 
 .portfolio-item-wrapper {
@@ -67,15 +80,13 @@ body {
 }
 
 .portfolio-img-background {
-    height: 350px;
-    /* Set a fixed height for the image */
+    height: 390px;
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 20px;
-    margin-bottom: 20px;
-    /* Add some margin between each portfolio item */
+    margin-bottom: 25px;
 }
 
 .img-text-wrapper {
@@ -89,10 +100,11 @@ body {
     text-align: center;
     padding-left: 100px;
     padding-right: 100px;
+    max-width: 500px;
 }
 
 .subtitle {
-    font-size: small;
+    font-size: larger;
     text-align: justify;
 }
 
@@ -145,26 +157,45 @@ body {
 }
 
 
-/* About Page */
+/* applies on all styles */
 .two-column-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.profile-image-wrapper img {
-    width: 100%;
-}
-
-.profile-content-wrapper {
-    padding: 30px;
-}
-
-.profile-content-wrapper h1 {
-    color: lightseagreen;
+.main-footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 767px) {
     .portfolio-items-wrapper {
         grid-template-columns: 1fr;
+    }
+
+    .subtitle h3,
+    h4 {
+        font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 773px) {
+    .portfolio-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .portfolio-item-wrapper .img-text-wrapper {
+        max-width: 100%;
+        /* Allow the text to occupy the full width of the container */
+    }
+
+    .subtitle h3,
+    h4 {
+        font-size: 2.3vw;
     }
 }
