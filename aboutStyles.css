@@ -7,7 +7,7 @@
 /* display photo */
 .profile-image-wrapper img {
     width: 60%;
-    margin-left: 150px;
+    margin-left: 90px;
     margin-top: 10px;
     border-radius: 50%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
