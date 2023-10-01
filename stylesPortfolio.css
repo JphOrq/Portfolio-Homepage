@@ -96,11 +96,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     text-align: center;
-    padding-left: 100px;
-    padding-right: 100px;
-    max-width: 500px;
+    height: 100%;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 .subtitle {
@@ -118,7 +117,7 @@ body {
 
 /* Common styles for .portfolio-container */
 .portfolio-container {
-    position: relative;
+    position: inherit;
 }
 
 .logo-wrapper {
