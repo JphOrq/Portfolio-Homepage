@@ -25,6 +25,17 @@
     margin-top: 10px;
 }
 
+/* Style the email link within .profile-content-wrapper */
+.profile-content-wrapper a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bolder;
+}
+
+.profile-content-wrapper a:hover {
+    color: lightseagreen;
+}
+
 /* resume button design */
 .btn-wrapper {
     position: relative;
@@ -57,7 +68,7 @@
 
 .btn:hover {
     background-color: lightseagreen;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .btn:hover .btn-link {
