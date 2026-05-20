@@ -20,6 +20,10 @@ document.getElementById("currentYear").textContent = currentYear;
 const username = "JphOrq";
 
 // GitHub-style colors (ONLY real languages from API)
+const username = "JphOrq";
+const CACHE_KEY = "gh_lang_cache";
+
+// GitHub colors
 const colors = {
   JavaScript: "#f1e05a",
   PHP: "#4F5D95",
@@ -29,25 +33,42 @@ const colors = {
   "C#": "#178600",
 };
 
+// 🔥 Load with cache first (instant UI)
 async function getLanguages() {
-  // ⚡ SINGLE REQUEST ONLY
-  const res = await fetch(
-    `https://api.github.com/users/${username}/repos?per_page=100`,
-  );
-  const repos = await res.json();
+  const cached = localStorage.getItem(CACHE_KEY);
 
-  let totals = {};
+  if (cached) {
+    renderLanguages(JSON.parse(cached));
+  }
 
-  repos.forEach((repo) => {
-    const lang = repo.language; // direct GitHub value
-    const size = repo.size || 1; // lightweight weighting
+  try {
+    const response = await axios.get(
+      `https://api.github.com/users/${username}/repos?per_page=100`,
+      { timeout: 8000 },
+    );
 
-    if (!lang) return;
+    const repos = response.data;
 
-    totals[lang] = (totals[lang] || 0) + size;
-  });
+    let totals = {};
 
-  renderLanguages(totals);
+    repos.forEach((repo) => {
+      const lang = repo.language;
+      const size = repo.size || 1;
+
+      if (!lang) return;
+
+      totals[lang] = (totals[lang] || 0) + size;
+    });
+
+    // Save cache (fast reload next time)
+    localStorage.setItem(CACHE_KEY, JSON.stringify(totals));
+
+    renderLanguages(totals);
+  } catch (error) {
+    console.error("GitHub API failed:", error);
+
+    // fallback already shown from cache
+  }
 }
 
 function renderLanguages(data) {
@@ -58,11 +79,11 @@ function renderLanguages(data) {
 
   const sorted = Object.entries(data)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 6); // top 6 only
+    .slice(0, 6);
 
   sorted.forEach(([lang, value]) => {
     const percent = ((value / total) * 100).toFixed(1);
-    const color = colors[lang] || "#58a6ff"; // fallback color
+    const color = colors[lang] || "#58a6ff";
 
     const el = document.createElement("div");
     el.className = "language";
@@ -81,4 +102,6 @@ function renderLanguages(data) {
   });
 }
 
+// auto refresh every 10 minutes
 getLanguages();
+setInterval(getLanguages, 600000);
