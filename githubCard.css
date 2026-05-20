@@ -1,0 +1,46 @@
+body {
+  background: #0d1117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.card {
+  background: #161b22;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  color: #c9d1d9;
+  box-shadow: 0 0 0 1px #30363d;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.language {
+  margin-bottom: 12px;
+}
+
+.lang-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.bar-bg {
+  background: #30363d;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 6px;
+}
