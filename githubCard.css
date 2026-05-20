@@ -93,3 +93,40 @@ body {
     transform: translateX(40px);
   }
 }
+
+@media (max-width: 767px) {
+  body {
+    padding: 20px;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .card h2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .lang-header {
+    font-size: 13px;
+    flex-direction: row;
+  }
+
+  .language {
+    margin-bottom: 12px;
+  }
+
+  .bar-bg {
+    height: 8px; /* slightly smaller for mobile */
+  }
+
+  .bar-fill::before {
+    background-size: 16px 16px; /* tighter stripes for small screens */
+  }
+}
