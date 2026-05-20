@@ -33,7 +33,7 @@ const colors = {
   "C#": "#178600",
 };
 
-// 🔥 Load with cache first (instant UI)
+// Load with cache first (instant UI)
 async function getLanguages() {
   const cached = localStorage.getItem(CACHE_KEY);
 
