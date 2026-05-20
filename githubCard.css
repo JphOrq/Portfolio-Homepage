@@ -1,5 +1,5 @@
 body {
-  background: #0d1117;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ body {
   background: #161b22;
   border-radius: 12px;
   padding: 20px;
-  width: 320px;
+  width: 650px;
   color: #c9d1d9;
   box-shadow: 0 0 0 1px #30363d;
 }
@@ -20,6 +20,7 @@ body {
 .card h2 {
   font-size: 16px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .language {
