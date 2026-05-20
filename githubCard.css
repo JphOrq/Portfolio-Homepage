@@ -11,10 +11,10 @@ body {
 .card {
   background: #161b22;
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px;
   width: 650px;
   color: #c9d1d9;
-  box-shadow: 0 0 0 1px #30363d;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .card h2 {
@@ -31,7 +31,8 @@ body {
 .lang-header {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: bold;
   margin-bottom: 6px;
 }
 
