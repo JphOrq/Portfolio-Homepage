@@ -19,7 +19,7 @@ document.getElementById("currentYear").textContent = currentYear;
 //repositories languages status bar
 const username = "JphOrq";
 
-// GitHub-style colors
+// GitHub-style colors (ONLY real languages from API)
 const colors = {
   JavaScript: "#f1e05a",
   PHP: "#4F5D95",
@@ -27,7 +27,6 @@ const colors = {
   CSS: "#563d7c",
   Python: "#3572A5",
   "C#": "#178600",
-  WordPress: "#21759b",
 };
 
 async function getLanguages() {
@@ -40,15 +39,10 @@ async function getLanguages() {
   let totals = {};
 
   repos.forEach((repo) => {
-    let lang = repo.language;
-    let size = repo.size || 1; // weight by repo size
+    const lang = repo.language; // direct GitHub value
+    const size = repo.size || 1; // lightweight weighting
 
     if (!lang) return;
-
-    // WordPress detection (simple heuristic)
-    if (lang === "PHP" && repo.name.toLowerCase().includes("wordpress")) {
-      lang = "WordPress";
-    }
 
     totals[lang] = (totals[lang] || 0) + size;
   });
@@ -64,24 +58,24 @@ function renderLanguages(data) {
 
   const sorted = Object.entries(data)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 6);
+    .slice(0, 6); // top 6 only
 
   sorted.forEach(([lang, value]) => {
     const percent = ((value / total) * 100).toFixed(1);
-    const color = colors[lang] || "#58a6ff";
+    const color = colors[lang] || "#58a6ff"; // fallback color
 
     const el = document.createElement("div");
     el.className = "language";
 
     el.innerHTML = `
-            <div class="lang-header">
-                <span>${lang}</span>
-                <span>${percent}%</span>
-            </div>
-            <div class="bar-bg">
-                <div class="bar-fill" style="width:${percent}%; background:${color}"></div>
-            </div>
-        `;
+      <div class="lang-header">
+        <span>${lang}</span>
+        <span>${percent}%</span>
+      </div>
+      <div class="bar-bg">
+        <div class="bar-fill" style="width:${percent}%; background:${color}"></div>
+      </div>
+    `;
 
     container.appendChild(el);
   });
