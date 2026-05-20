@@ -66,14 +66,14 @@ function renderLanguages(data) {
     el.className = "language";
 
     el.innerHTML = `
-      <div class="lang-header">
-        <span>${lang}</span>
-        <span>${percent}%</span>
-      </div>
-      <div class="bar-bg">
-        <div class="bar-fill" style="width:${percent}%; background:${color}"></div>
-      </div>
-    `;
+  <div class="lang-header">
+    <span>${lang}</span>
+    <span>${percent}%</span>
+  </div>
+  <div class="bar-bg">
+    <div class="bar-fill" style="--w:${percent}%; width:${percent}%; background:${color}"></div>
+  </div>
+`;
 
     container.appendChild(el);
   });

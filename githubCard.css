@@ -19,29 +19,76 @@ body {
 
 .card h2 {
   font-size: 16px;
+  font-weight: bold;
   margin-bottom: 15px;
   text-align: center;
 }
 
 .language {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .lang-header {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
+/* progress bar */
 .bar-bg {
   background: #30363d;
-  border-radius: 6px;
-  height: 8px;
+  border-radius: 8px;
+  height: 10px;
   overflow: hidden;
 }
 
+/* animated striped bar */
 .bar-fill {
   height: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  animation: fillBar 1s ease forwards;
+}
+
+/* stripe overlay effect */
+.bar-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%
+  );
+  background-size: 20px 20px;
+  animation: moveStripes 1s linear infinite;
+}
+
+/* smooth fill animation */
+@keyframes fillBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--w, 100%);
+  }
+}
+
+/* stripe movement */
+@keyframes moveStripes {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(40px);
+  }
 }
