@@ -71,7 +71,9 @@ body {
 
 /* Portfolio Styles */
 .portfolio-items-wrapper {
-  grid-template-columns: 1fr, 1fr, 1fr;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .portfolio-item-wrapper {
