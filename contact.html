@@ -1,92 +1,125 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Contact | Portfolio Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Joseph C. Orquista</title>
     <link rel="stylesheet" href="stylesPortfolio.css" />
     <link rel="stylesheet" href="contactStyles.css" />
+    <link rel="stylesheet" href="aboutStyles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="imagesRunning/html.png" type="image/x-icon" />
   </head>
 
   <body>
-    <div class="jumbotron text-center">
-      <div class="container">
-        <div class="nav-wrapper">
-          <div class="left-side">
-            <div class="nav-link-wrapper">
-              <a href="index.html">Home</a>
-            </div>
-
-            <div class="nav-link-wrapper">
-              <a href="projects.html">Projects</a>
-            </div>
-
-            <div class="nav-link-wrapper">
-              <a href="about.html">About</a>
-            </div>
-
-            <div class="nav-link-wrapper active-nav-link">
-              <a href="contact.html">Contact</a>
-            </div>
-          </div>
-
-          <!-- <div class="right-side">
-            <div class="brand">
-              <div>JOSEPH ORQUITA</div>
-            </div>
-          </div> -->
+    <nav class="nav-wrapper">
+      <div class="left-side">
+        <div class="nav-link-wrapper">
+          <a href="index.html">Home</a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="projects.html">Projects</a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="about.html">About</a>
+        </div>
+        <div class="nav-link-wrapper active-nav-link">
+          <a href="contact.html">Contact</a>
         </div>
       </div>
-      <div class="main-content">
-        <div class="content-wrapper">
-          <div class="profile-content-wrapper">
-            <h1>Contact Me</h1>
-            <div class="contact-info">
-              <div class="contact-item">
-                <img src="imagesRunning/mail.png" alt="mail" />
-                <a href="mailto:joseph_orquita@yahoo.com"
-                  >joseph_orquita@yahoo.com</a
-                >
-              </div>
-              <div class="contact-item">
-                <img src="imagesRunning/linkedin.png" alt="linkedin" />
-                <a
-                  href="https://www.linkedin.com/in/joseph-o-3aa3ab213/"
-                  target="_blank"
-                  >Linkedin</a
-                >
-              </div>
-              <div class="contact-item">
-                <img src="imagesRunning/GitHub1.png" alt="github" />
-                <a href="https://github.com/JphOrq" target="_blank"
-                  >JphOrq (whiteumbrella)</a
-                >
-              </div>
-              <div class="contact-item">
-                <img src="imagesRunning/phone-call.png" alt="phone-call" />
-                <p>0939 189 7354</p>
-              </div>
-            </div>
-          </div>
+      <div class="right-side">
+        <div class="brand">
+          <div>JOSEPH C. ORQUITA</div>
         </div>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <i class="fa fa-moon-o"></i>
+        </button>
       </div>
+    </nav>
 
-      <footer class="main-footer">
-        <p>
-          JphOrq
-          <a href="https://github.com/JphOrq" target="_blank">
-            <img
-              src="imagesRunning/GitHub1.png"
-              alt="GitHub"
-              width="24"
-              height="24"
-            />
-          </a>
-          <br />
-          &copy; 2023-<span id="currentYear"></span>
+    <header class="hero reveal">
+      <div class="hero-content">
+        <span class="hero-badge">Get in Touch</span>
+        <h1 class="hero-title">Contact Me</h1>
+        <p class="hero-sub">
+          Have a project in mind or want to collaborate? I'd love to hear from you.
+          Reach out using any of the channels below.
         </p>
-      </footer>
-    </div>
+      </div>
+    </header>
+
+    <section class="contact-section reveal">
+      <div class="section-header reveal">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">
+          I'm available for freelance work, full-time opportunities, and project collaborations.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="contact-item">
+            <img src="imagesRunning/mail.png" alt="mail" />
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:joseph_orquita@yahoo.com">joseph_orquita@yahoo.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <img src="imagesRunning/linkedin.png" alt="linkedin" />
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/joseph-o-3aa3ab213/" target="_blank">Joseph O.</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <img src="imagesRunning/GitHub1.png" alt="github" />
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com/JphOrq" target="_blank">JphOrq (whiteumbrella)</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <img src="imagesRunning/phone-call.png" alt="phone-call" />
+            <div>
+              <strong>Phone</strong>
+              <span>0939 189 7354</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <h3>Follow Me</h3>
+          <div class="social-links">
+            <a href="https://github.com/JphOrq" target="_blank" class="social-link">
+              <i class="fa fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/joseph-o-3aa3ab213/" target="_blank" class="social-link">
+              <i class="fa fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:joseph_orquita@yahoo.com" class="social-link">
+              <i class="fa fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer reveal">
+      <p>
+        JphOrq
+        <a href="https://github.com/JphOrq" target="_blank">
+          <img
+            src="imagesRunning/GitHub1.png"
+            alt="GitHub"
+            width="24"
+            height="24"
+          />
+        </a>
+        <br />
+        &copy; 2023-<span id="currentYear"></span>
+      </p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

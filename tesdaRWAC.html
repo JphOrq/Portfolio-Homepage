@@ -1,72 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESDA Certificate | Joseph C. Orquita</title>
     <link rel="stylesheet" href="stylesPortfolio.css">
     <link rel="stylesheet" href="tesdaStyles.css">
+    <link rel="stylesheet" href="aboutStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="imagesRunning/html.png" type="image/x-icon" />
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="left-side">
-                    <div class="nav-link-wrapper">
-                        <a href="index.html">Home</a>
-                    </div>
+    <nav class="nav-wrapper">
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="projects.html">Projects</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="about.html">About</a>
+            </div>
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="tesdaRWAC.html">Certificate</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="brand">
+                <div>JOSEPH ORQUITA</div>
+            </div>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fa fa-moon-o"></i>
+            </button>
+        </div>
+    </nav>
 
-                    <div class="nav-link-wrapper">
-                        <a href="projects.html">Projects</a>
-                    </div>
+    <header class="hero reveal">
+        <div class="hero-content">
+            <span class="hero-badge">Certification</span>
+            <h1 class="hero-title">TESDA Web Development NC III</h1>
+            <p class="hero-sub">
+                Certificate of Competency in Web Development — validating skills in building
+                dynamic, database-driven web applications.
+            </p>
+        </div>
+        <div class="hero-visual">
+            <div class="profile-glow"></div>
+            <img src="imagesRunning/TesdaRWAC.jpg" alt="TESDA Certificate" class="certificate-img">
+        </div>
+    </header>
 
-                    <div class="nav-link-wrapper active-nav-link ">
-                        <a href="about.html">About</a>
-                    </div>
+    <section class="cert-details reveal">
+        <div class="section-header reveal">
+            <h2 class="section-title">Certificate Details</h2>
+            <p class="section-subtitle">
+                Official certification from the Technical Education and Skills Development Authority (TESDA).
+            </p>
+        </div>
 
-                    <div class="nav-link-wrapper">
-                        <a href="contact.html">Contact</a>
-                    </div>
-                </div>
-
-                <div class="right-side">
-                    <div class="brand">
-                        <div>JOSEPH ORQUITA</div>
-                    </div>
-                </div>
+        <div class="cert-info-grid reveal">
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fa fa-certificate"></i></div>
+                <h3>Certificate of Competency</h3>
+                <p>Web Development NC III — validates competency in building dynamic, database-driven web applications
+                    covering front-end markup, client-side interactivity, back-end programming, and database integration.</p>
             </div>
 
-            <div class="content-wrapper">
-                <div class="btn-wrapper">
-                    <button class="btn">
-                        <div class="btn-content">
-                            <a href="about.html" class="btn-link">Back</a>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="two-column-wrapper">
-                    <div class="profile-image-wrapper">
-                        <img src="imagesRunning/TesdaRWAC.jpg">
-                    </div>
-                </div>
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fa fa-building"></i></div>
+                <h3>Issuing Authority</h3>
+                <p>Technical Education and Skills Development Authority (TESDA) — the Philippines' leading agency for
+                    technical vocational education and training.</p>
             </div>
 
-            <footer class="main-footer">
-                <p>
-                    JphOrq
-                    <a href="https://github.com/JphOrq" target="_blank">
-                        <img src="imagesRunning/GitHub1.png" alt="GitHub" width="24" height="24" />
-                    </a>
-                    <br>
-                    &copy; 2023-<span id="currentYear"></span>
-                </p>
-            </footer>
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fa fa-code"></i></div>
+                <h3>Skills Covered</h3>
+                <p>HTML5, CSS3, JavaScript, PHP, MySQL, and Web Systems Development using industry-standard tools and
+                    practices.</p>
+            </div>
 
-            <script src="script.js"></script>
+            <div class="cert-card">
+                <div class="cert-icon"><i class="fa fa-globe"></i></div>
+                <h3>Application</h3>
+                <p>Applied in the development and maintenance of web-based systems for the National Tuberculosis (TB)
+                    Program, ensuring reliability, data accuracy, and compliance with government standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cert-actions reveal">
+        <div class="btn-wrapper" style="justify-content: center; gap: 16px;">
+            <a href="about.html" class="btn btn-outline">Back to Profile</a>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer class="main-footer reveal">
+        <p>
+            JphOrq
+            <a href="https://github.com/JphOrq" target="_blank">
+                <img src="imagesRunning/GitHub1.png" alt="GitHub" width="24" height="24" />
+            </a>
+            <br>
+            &copy; 2023-<span id="currentYear"></span>
+        </p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

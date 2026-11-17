@@ -20,6 +20,42 @@ document.getElementById("currentYear").textContent = currentYear;
 
 // *****************************************************
 
+// Theme toggle
+const themeToggle = document.querySelector(".theme-toggle");
+const html = document.documentElement;
+const savedTheme = localStorage.getItem("theme");
+
+function applyTheme(theme) {
+  html.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  updateThemeIcon(theme);
+}
+
+function updateThemeIcon(theme) {
+  if (!themeToggle) return;
+  const icon = themeToggle.querySelector("i");
+  if (!icon) return;
+  icon.className = theme === "dark" ? "fa fa-sun-o" : "fa fa-moon-o";
+}
+
+function initTheme() {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const theme = savedTheme || (prefersDark ? "dark" : "light");
+  applyTheme(theme);
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+}
+
+initTheme();
+
+// *****************************************************
+
 //repositories languages status bar
 const username = "JphOrq";
 

@@ -1,9 +1,10 @@
+/* Home Styles - Theme Aware */
 .profile-content-wrapper {
   padding: 30px;
 }
 
 .profile-content-wrapper h2 {
-  color: lightseagreen;
+  color: var(--text-color);
 }
 
 .profile-image-wrapper img {
@@ -23,33 +24,63 @@ footer {
 footer p {
   margin: 0;
   font-weight: 500;
+  color: var(--muted-color, var(--muted));
 }
 
 footer a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
 }
 
 footer img {
   width: 24px;
   height: 24px;
-  transition: transform 0.4s ease-in-out;
+  transition: var(--transition);
 }
 
 footer a:hover img {
   transform: scale(1.3) rotate(360deg);
 }
 
-.profile-content-wrapper {
-  padding: 30px;
+/* About grid for home page */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 60px;
+  align-items: start;
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.profile-content-wrapper h2 {
-  color: lightseagreen;
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--muted-color, var(--muted));
+  margin-bottom: 24px;
 }
 
-.profile-image-wrapper img {
-  width: 100%;
+.profile-img-small {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--card-border);
+  box-shadow: 0 20px 40px var(--shadow-color-dark);
+}
+
+/* Stack logo - filter images for dark mode */
+.stack-logo img {
+  filter: grayscale(20%);
+  transition: var(--transition);
+}
+
+.stack-logo img:hover {
+  filter: grayscale(0%);
+}
+
+[data-theme="dark"] .stack-logo img {
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .two-column-wrapper {
@@ -60,40 +91,22 @@ footer a:hover img {
 }
 
 @media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 20px;
+  }
   .two-column-wrapper {
     grid-template-columns: 1fr;
-  }
-
-  .card {
-    order: 1;
-  }
-
-  .profile-content-wrapper {
-    order: 2;
   }
 }
 
 @media (max-width: 480px) {
-  .profile-content-wrapper {
-    padding: 15px;
+  .profile-img-small {
+    width: 200px;
+    height: 200px;
   }
-
-  .profile-content-wrapper h2 {
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
   .stack-logo img {
     width: 24px;
-  }
-}
-
-@media (max-width: 360px) {
-  .profile-content-wrapper h2 {
-    font-size: 14px;
-  }
-
-  .stack-logo img {
-    width: 22px;
   }
 }
