@@ -1,135 +1,258 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>About | Portfolio Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Joseph C. Orquita</title>
     <link rel="stylesheet" href="stylesPortfolio.css">
+    <link rel="stylesheet" href="githubCard.css">
     <link rel="stylesheet" href="aboutStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="imagesRunning/html.png" type="image/x-icon" />
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="left-side">
-                    <div class="nav-link-wrapper">
-                        <a href="index.html">Home</a>
-                    </div>
-
-                    <div class="nav-link-wrapper">
-                        <a href="projects.html">Projects</a>
-                    </div>
-
-                    <div class="nav-link-wrapper active-nav-link ">
-                        <a href="about.html">About</a>
-                    </div>
-
-                    <div class="nav-link-wrapper">
-                        <a href="contact.html">Contact</a>
-                    </div>
-                </div>
-
-                <div class="right-side">
-                    <div class="brand">
-                        <div>JOSEPH C. ORQUITA</div>
-                    </div>
-                </div>
+    <nav class="nav-wrapper">
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="index.html">Home</a>
             </div>
 
-            <div class="content-wrapper">
-                <div class="two-column-wrapper">
-                    <div class="profile-image-wrapper">
-                        <img src="imagesRunning/JphOrqPhoto.jpg">
+            <div class="nav-link-wrapper">
+                <a href="projects.html">Projects</a>
+            </div>
+
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="contact.html">Contact</a>
+            </div>
+            </div>
+
+        <!-- <div class="brand">
+            <div>JOSEPH C. ORQUITA</div>
+        </div> -->
+    </nav>
+    
+    <header class="hero reveal">
+        <div class="hero-content">
+            <span class="hero-badge">Software Developer</span>
+            <h1 class="hero-title" id="typewriter"></h1>
+            <p class="hero-sub">a Computer Programmer &amp; Mid-Level Developer</p>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                <a href="projects.html" class="btn btn-outline">View Projects</a>
+            </div>
+            </div>
+        <div class="hero-visual">
+            <div class="profile-glow"></div>
+            <img src="imagesRunning/JphOrqPhoto.jpg" alt="Joseph C. Orquita" class="profile-img">
+        </div>
+        </header>
+
+    <section class="stats reveal">
+        <div class="stat-card">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">Systems Built</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Commitment to Quality</div>
+        </div>
+        </section>
+
+    <section class="about-content reveal">
+        <div class="about-text">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                I am a Developer/Programmer specializing in web development, combining strong analytical thinking with
+                technical
+                expertise. I currently support the National Tuberculosis (TB) Program by developing and maintaining
+                web-based
+                systems, ensuring reliability, data accuracy, and compliance with government standards.
+                </p>
+
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="detail-icon"><i class="fa fa-code"></i></span>
+                    <div>
+                        <strong>Core Stack</strong>
+                        <span>PHP &bull; C# &bull; ASP.NET MVC &bull; .NET Core &bull; CodeIgniter<br>
+                            MS SQL Server &bull; MySQL/MariaDB &bull; Redis &bull; WordPress<br>
+                            HTML &bull; CSS &bull; JavaScript &bull; jQuery &bull; Bootstrap</span>
                     </div>
-
-                    <div class="profile-content-wrapper">
-                        <h1>About Me</h1>
-                        <p>
-                            I am a Developer/Programmer specializing in web development, combining strong analytical
-                            thinking with technical
-                            expertise. I currently support the National Tuberculosis (TB) Program by developing and
-                            maintaining web-based
-                            systems, ensuring reliability, data accuracy, and compliance with government standards.
-                        </p>
-
-                        <p>
-                            <strong>Core Stack:</strong><br>
-                            PHP, C#, ASP.NET MVC, .NET Core, CodeIgniter, <br>
-                            MS SQL Server, MySQL/MariaDB, Redis, WordPress<br>
-                            HTML, CSS, JavaScript, jQuery, Bootstrap
-                        </p>
-
-                        <p>
-                            <strong>Tools:</strong><br>
-                            XAMPP, Visual Studio & Visual Studio Code, <br>
-                            Git, GitHub, FTP, SMTP
-                        </p>
-
-                        <p>
-                            <strong>Key Work:</strong><br>
-                            * Integrated Tuberculosis Information System (ITIS)<br>
-                            * ITIS Lite (Private TB Notification)<br>
-                            * National Tuberculosis Control Program (NTP)
-                        </p>
-
-                        <p>
-                            <strong>What I Do:</strong><br>
-                            Full-stack development (frontend, backend, database)<br>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon"><i class="fa fa-wrench"></i></span>
+                    <div>
+                        <strong>Tools</strong>
+                        <span>XAMPP &bull; Visual Studio &amp; VS Code<br>
+                            Git &bull; GitHub &bull; FTP &bull; SMTP</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon"><i class="fa fa-briefcase"></i></span>
+                    <div>
+                        <strong>Key Work</strong>
+                        <span>Integrated Tuberculosis Information System (ITIS)<br>
+                            ITIS Lite (Private TB Notification)<br>
+                            National Tuberculosis Control Program (NTP)</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon"><i class="fa fa-star"></i></span>
+                    <div>
+                        <strong>What I Do</strong>
+                        <span>Full-stack development (frontend, backend, database)<br>
                             System optimization, bug fixing, and deployment<br>
                             Authentication systems (OTP, 2FA, recovery)<br>
-                            Technical support and system maintenance
-                        </p>
-                        <p>
-                            I have obtained a
-                            <a href="tesdaRWAC.html">
-                                Certificate of Competency in Web Development NC III
-                            </a>
-                            and continue to expand my technical expertise in ASP.NET MVC, .NET Core, Blazor and
-                            Microsoft SQL
-                            Server. I am continuously
-                            strengthening my skills in modern web development and backend systems to build efficient,
-                            scalable, and data-driven
-                            applications.
-                        </p>
-                        <p>
-                            I am committed to continuous learning and professional growth, with the goal of
-                            contributing
-                            meaningfully to system development, process improvement, and digital transformation
-                            initiatives.
-                        </p>
-
-                        <div class="btn-wrapper">
-                            <button class="btn">
-                                <div class="btn-content">
-                                    <a target="_blank"
-                                        href="https://drive.google.com/file/d/1L6UwJm3QDS3K1uPpQy1oq7chTG4cHC5p/view?usp=sharing"
-                                        class="btn-link">
-                                        <i class="fa fa-file-pdf"></i> <span
-                                            style="text-transform: uppercase;">Resume</span>
-                                        <img src="imagesRunning/downloads.png" alt="download" class="btn-img">
-                                    </a>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="main-footer">
-                <p>
-                    JphOrq
-                    <a href="https://github.com/JphOrq" target="_blank">
-                        <img src="imagesRunning/GitHub1.png" alt="GitHub" width="24" height="24" />
-                    </a>
-                    <br>
-                    &copy; 2023-<span id="currentYear"></span>
+                            Technical support and system maintenance</span>
+                            </div>
+                            </div>
+                            </div>
+                            
+                            <p>
+                                I have obtained a
+                                <a href="tesdaRWAC.html">
+                                    Certificate of Competency in Web Development NC III
+                                </a>
+                and continue to expand my technical expertise in ASP.NET MVC, .NET Core, Blazor and Microsoft SQL
+                Server.
+                I am continuously strengthening my skills in modern web development and backend systems to build
+                efficient, scalable, and data-driven applications.
                 </p>
-            </footer>
+                <p>
+                I am committed to continuous learning and professional growth, with the goal of contributing
+                meaningfully to system development, process improvement, and digital transformation initiatives.
+                </p>
 
-            <script src="script.js"></script>
+            <div class="btn-wrapper">
+                <button class="btn btn-resume">
+                    <div class="btn-content">
+                        <a target="_blank" href="https://drive.google.com/file/d/1L6UwJm3QDS3K1uPpQy1oq7chTG4cHC5p/view?usp=sharing"
+                            class="btn-link">
+                            <i class="fa fa-file-pdf"></i> <span style="text-transform: uppercase;">Resume</span>
+                            <img src="imagesRunning/downloads.png" alt="download" class="btn-img">
+                            </a>
+                            </div>
+                            </button>
+                            </div>
+                            </div>
+<div class="about-image">
+    <div class="cert-badge">
+        <img src="imagesRunning/TesdaRWAC.jpg" alt="TESDA Certificate">
+        <span>TESDA Web Development NC III</span>
+    </div>
+</div>
+</section>
+
+<section class="skills reveal">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <img src="imagesRunning/php.png" alt="PHP">
+            <span>PHP</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/c-sharp.png" alt="C#">
+            <span>C#</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/aspnet.png" alt="ASP.NET">
+            <span>ASP.NET MVC</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/NetCore.png" alt=".NET Core">
+            <span>.NET Core</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/codeigniter.png" alt="CodeIgniter">
+            <span>CodeIgniter</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/mysql.png" alt="MySQL">
+            <span>MySQL</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/mssql.png" alt="MS SQL">
+            <span>MS SQL Server</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/wordpress.png" alt="WordPress">
+            <span>WordPress</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/html.png" alt="HTML">
+            <span>HTML5</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/css-3.png" alt="CSS">
+            <span>CSS3</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/js.png" alt="JavaScript">
+            <span>JavaScript</span>
+        </div>
+        <div class="skill-card">
+            <img src="imagesRunning/xampp.png" alt="XAMPP">
+            <span>XAMPP</span>
+        </div>
+    </div>
+</section>
+
+<section class="services reveal">
+    <h2 class="section-title">What I Offer</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fa fa-laptop"></i></div>
+            <h3>Full-Stack Development</h3>
+            <p>End-to-end web applications — frontend, backend, and database — built for scale and performance.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa fa-database"></i></div>
+            <h3>Database Systems</h3>
+            <p>Design and optimization of SQL Server, MySQL, and MariaDB databases for data-driven applications.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa fa-lock"></i></div>
+            <h3>Authentication &amp; Security</h3>
+            <p>Secure login systems with OTP, 2FA, account recovery, and role-based access control.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa fa-cogs"></i></div>
+            <h3>System Maintenance</h3>
+            <p>Bug fixing, deployment, optimization, and ongoing technical support for production systems.</p>
+            </div>
+            </div>
+    </section>
+    
+<section class="github-stats reveal">
+    <h2 class="section-title">GitHub Language Breakdown</h2>
+    <div class="card">
+        <h2>Top Languages</h2>
+        <div id="languages"></div>
+    </div>
+</section>
+
+    <footer class="main-footer reveal">
+        <p>
+            JphOrq
+            <a href="https://github.com/JphOrq" target="_blank">
+                <img src="imagesRunning/GitHub.png" alt="GitHub" width="24" height="24" />
+                </a>
+                <br>
+                &copy; 2023-<span id="currentYear"></span>
+                </p>
+                </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

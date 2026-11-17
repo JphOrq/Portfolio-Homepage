@@ -54,6 +54,7 @@ async function getLanguages() {
 
 function renderLanguages(data) {
   const container = document.getElementById("languages");
+  if (!container) return;
   container.innerHTML = "";
 
   const total = Object.values(data).reduce((a, b) => a + b, 0);
@@ -84,3 +85,71 @@ function renderLanguages(data) {
 }
 
 getLanguages();
+
+// *****************************************************
+// Typewriter effect for the hero title
+const typewriter = document.getElementById("typewriter");
+const typeText = "Joseph C. Orquita";
+let typeIndex = 0;
+
+function type() {
+  if (!typewriter) return;
+  if (typeIndex < typeText.length) {
+    typewriter.textContent += typeText.charAt(typeIndex);
+    typeIndex++;
+    setTimeout(type, 90);
+  }
+}
+
+// Animated counters for stat cards
+const statNumbers = document.querySelectorAll(".stat-number");
+
+function animateCounter(el) {
+  const target = +el.getAttribute("data-target");
+  const duration = 1400;
+  const start = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const value = Math.floor(progress * target);
+    el.textContent = value + (value === target && target >= 100 ? "%" : "");
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = target + (target >= 100 ? "%" : "");
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+// Scroll reveal via Intersection Observer
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        if (entry.target.classList.contains("stats")) {
+          statNumbers.forEach((s) => animateCounter(s));
+        }
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+// Kick off typewriter once the hero is visible
+const heroObserver = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      type();
+      heroObserver.disconnect();
+    }
+  },
+  { threshold: 0.2 }
+);
+
+const hero = document.querySelector(".hero");
+if (hero) heroObserver.observe(hero);
