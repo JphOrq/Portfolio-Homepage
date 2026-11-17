@@ -104,13 +104,27 @@ function type() {
 // Animated counters for stat cards
 const statNumbers = document.querySelectorAll(".stat-number");
 
+function computeYearsFrom(startStr) {
+  const start = new Date(startStr + "-01");
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  if (
+    now.getMonth() < start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate())
+  ) {
+    years -= 1;
+  }
+  return Math.max(years, 0);
+}
+
 function animateCounter(el) {
-  const target = +el.getAttribute("data-target");
+  const startStr = el.getAttribute("data-start");
+  const target = startStr ? computeYearsFrom(startStr) : +el.getAttribute("data-target");
   const duration = 1400;
-  const start = performance.now();
+  const startTime = performance.now();
 
   function step(now) {
-    const progress = Math.min((now - start) / duration, 1);
+    const progress = Math.min((now - startTime) / duration, 1);
     const value = Math.floor(progress * target);
     el.textContent = value + (value === target && target >= 100 ? "%" : "");
     if (progress < 1) {
