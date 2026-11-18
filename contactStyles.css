@@ -46,6 +46,11 @@
   width: 24px;
   height: 24px;
   margin-right: 20px;
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .contact-item img {
+  filter: invert(1) brightness(1.2);
 }
 
 .profile-content-wrapper a {

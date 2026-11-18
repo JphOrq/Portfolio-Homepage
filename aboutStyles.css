@@ -168,7 +168,7 @@ body {
 
 .btn-outline {
   background: transparent;
-  color: var(--light);
+  color: var(--text-color);
   border: 1px solid var(--border);
 }
 
@@ -324,7 +324,7 @@ body {
 }
 
 .qualities-list li strong {
-  color: var(--light);
+  color: var(--text-color);
 }
 
 /* Certificate info */
@@ -357,7 +357,7 @@ body {
 }
 
 .cert-title {
-  color: var(--light);
+  color: var(--text-color);
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -427,7 +427,7 @@ body {
 .section-title {
   font-size: 2rem;
   margin-bottom: 24px;
-  color: var(--light);
+  color: var(--text-color);
   position: relative;
   display: inline-block;
 }
@@ -632,7 +632,7 @@ body {
 
 .skill-card span {
   font-size: 0.85rem;
-  color: var(--light);
+  color: var(--text-color);
   font-weight: 600;
 }
 
@@ -677,7 +677,7 @@ body {
 }
 
 .service-card h3 {
-  color: var(--light);
+  color: var(--text-color);
   margin-bottom: 12px;
   font-size: 1.15rem;
 }

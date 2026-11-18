@@ -29,6 +29,8 @@ function applyTheme(theme) {
   html.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
   updateThemeIcon(theme);
+  updateGitHubIcon(theme);
+  updateSkillIcons(theme);
 }
 
 function updateThemeIcon(theme) {
@@ -36,6 +38,24 @@ function updateThemeIcon(theme) {
   const icon = themeToggle.querySelector("i");
   if (!icon) return;
   icon.className = theme === "dark" ? "fa fa-sun-o" : "fa fa-moon-o";
+}
+
+function updateGitHubIcon(theme) {
+  const githubImgs = document.querySelectorAll("#github-icon");
+  if (!githubImgs) return;
+  githubImgs.forEach((img) => {
+    img.src = theme === "dark" ? "imagesRunning/GitHub.png" : "imagesRunning/GitHub1.png";
+  });
+}
+
+function updateSkillIcons(theme) {
+  const skillImgs = document.querySelectorAll(".skill-card img");
+  if (!skillImgs) return;
+  skillImgs.forEach((img) => {
+    const darkSrc = img.getAttribute("data-dark-src");
+    const lightSrc = img.getAttribute("data-light-src");
+    img.src = theme === "dark" ? darkSrc : lightSrc;
+  });
 }
 
 function initTheme() {
