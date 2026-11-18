@@ -159,6 +159,19 @@ function type() {
 
 // Animated counters for stat cards
 const statNumbers = document.querySelectorAll(".stat-number");
+let repoCount = null;
+
+async function fetchRepoCount() {
+  if (repoCount !== null) return repoCount;
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+    const repos = await res.json();
+    repoCount = Array.isArray(repos) ? repos.length : 0;
+  } catch (e) {
+    repoCount = 0;
+  }
+  return repoCount;
+}
 
 function computeYearsFrom(startStr) {
   const start = new Date(startStr + "-01");
@@ -173,9 +186,17 @@ function computeYearsFrom(startStr) {
   return Math.max(years, 0);
 }
 
-function animateCounter(el) {
+async function animateCounter(el) {
   const startStr = el.getAttribute("data-start");
-  const target = startStr ? computeYearsFrom(startStr) : +el.getAttribute("data-target");
+  const countType = el.getAttribute("data-count");
+  let target;
+
+  if (countType === "github-repos") {
+    target = await fetchRepoCount();
+  } else {
+    target = startStr ? computeYearsFrom(startStr) : +el.getAttribute("data-target");
+  }
+
   const duration = 1400;
   const startTime = performance.now();
 
