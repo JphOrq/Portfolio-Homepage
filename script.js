@@ -89,23 +89,29 @@ const colors = {
 };
 
 async function getLanguages() {
-  const res = await fetch(
-    `https://api.github.com/users/${username}/repos?per_page=100`,
-  );
-  const repos = await res.json();
+  try {
+    const res = await fetch(
+      `https://api.github.com/users/${username}/repos?per_page=100`,
+    );
+    if (!res.ok) return;
+    const repos = await res.json();
+    if (!Array.isArray(repos)) return;
 
-  let totals = {};
+    let totals = {};
 
-  repos.forEach((repo) => {
-    const lang = repo.language; // direct GitHub value
-    const size = repo.size || 1; // lightweight weighting
+    repos.forEach((repo) => {
+      const lang = repo.language;
+      const size = repo.size || 1;
 
-    if (!lang) return;
+      if (!lang) return;
 
-    totals[lang] = (totals[lang] || 0) + size;
-  });
+      totals[lang] = (totals[lang] || 0) + size;
+    });
 
-  renderLanguages(totals);
+    renderLanguages(totals);
+  } catch (e) {
+    // Silently fail if GitHub API is rate-limited or unavailable
+  }
 }
 
 function renderLanguages(data) {
@@ -165,10 +171,14 @@ async function fetchRepoCount() {
   if (repoCount !== null) return repoCount;
   try {
     const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+    if (!res.ok) {
+      repoCount = null;
+      return null;
+    }
     const repos = await res.json();
-    repoCount = Array.isArray(repos) ? repos.length : 0;
+    repoCount = Array.isArray(repos) ? repos.length : null;
   } catch (e) {
-    repoCount = 0;
+    repoCount = null;
   }
   return repoCount;
 }
