@@ -42,7 +42,7 @@ function updateThemeIcon(theme) {
 
 function updateGitHubIcon(theme) {
   const githubImgs = document.querySelectorAll("#github-icon");
-  if (!githubImgs) return;
+  if (!githubImgs || githubImgs.length === 0) return;
   githubImgs.forEach((img) => {
     img.src = theme === "dark" ? "imagesRunning/GitHub.png" : "imagesRunning/GitHub1.png";
   });
