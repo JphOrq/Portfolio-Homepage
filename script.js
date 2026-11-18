@@ -189,10 +189,14 @@ function computeYearsFrom(startStr) {
 async function animateCounter(el) {
   const startStr = el.getAttribute("data-start");
   const countType = el.getAttribute("data-count");
+  const fallbackValue = el.getAttribute("data-fallback");
   let target;
 
   if (countType === "github-repos") {
     target = await fetchRepoCount();
+    if (!target || target === 0) {
+      target = fallbackValue ? +fallbackValue : 0;
+    }
   } else {
     target = startStr ? computeYearsFrom(startStr) : +el.getAttribute("data-target");
   }
