@@ -29,7 +29,6 @@ function applyTheme(theme) {
   html.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
   updateThemeIcon(theme);
-  updateGitHubIcon(theme);
   updateSkillIcons(theme);
 }
 
@@ -38,14 +37,6 @@ function updateThemeIcon(theme) {
   const icon = themeToggle.querySelector("i");
   if (!icon) return;
   icon.className = theme === "dark" ? "fa fa-sun-o" : "fa fa-moon-o";
-}
-
-function updateGitHubIcon(theme) {
-  const githubImgs = document.querySelectorAll("#github-icon");
-  if (!githubImgs || githubImgs.length === 0) return;
-  githubImgs.forEach((img) => {
-    img.src = theme === "dark" ? "imagesRunning/GitHub.png" : "imagesRunning/GitHub1.png";
-  });
 }
 
 function updateSkillIcons(theme) {
