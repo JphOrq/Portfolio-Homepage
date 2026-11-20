@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "visitors": {
+      ".read": true,
+      "daily": {
+        "$day": {
+          ".write": "auth != null && $day === ((now - (now + 28800000) % 86400000) + '') && newData.isNumber() && newData.val() === (data.exists() ? data.val() + 1 : 1)"
+        }
+      }
+    }
+  }
+}
