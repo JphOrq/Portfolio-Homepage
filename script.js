@@ -14,7 +14,7 @@ function initBackToTop() {
   const credit = document.createElement("a");
   credit.className = "back-to-top-credit";
   credit.href = "https://www.flaticon.com/free-icon/up-arrow_10486739";
-  credit.textContent = "Up arrow icon from Flaticon";
+  // credit.textContent = "Up arrow icon from Flaticon";
   document.querySelector(".main-footer p")?.append(credit);
 
   const scrollRoot = document.scrollingElement;
