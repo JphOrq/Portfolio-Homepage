@@ -166,7 +166,6 @@ function type() {
 // Animated counters for stat cards
 const statNumbers = document.querySelectorAll(".stat-number");
 let repoCount = null;
-let pageViewsCount = null;
 
 async function fetchRepoCount() {
   if (repoCount !== null) return repoCount;
@@ -182,22 +181,6 @@ async function fetchRepoCount() {
     repoCount = null;
   }
   return repoCount;
-}
-
-async function fetchPageViews() {
-  if (pageViewsCount !== null) return pageViewsCount;
-  try {
-    const res = await fetch("https://api.countapi.xyz/hit/jphorq-github-pages/pageviews");
-    if (!res.ok) {
-      pageViewsCount = null;
-      return null;
-    }
-    const data = await res.json();
-    pageViewsCount = data.value || 0;
-  } catch (e) {
-    pageViewsCount = null;
-  }
-  return pageViewsCount;
 }
 
 function computeYearsFrom(startStr) {
@@ -221,11 +204,6 @@ async function animateCounter(el) {
 
   if (countType === "github-repos") {
     target = await fetchRepoCount();
-    if (!target || target === 0) {
-      target = fallbackValue ? +fallbackValue : 0;
-    }
-  } else if (countType === "page-views") {
-    target = await fetchPageViews();
     if (!target || target === 0) {
       target = fallbackValue ? +fallbackValue : 0;
     }
