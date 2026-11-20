@@ -32,25 +32,23 @@
     const analytics = getAnalytics(app);
     const db = getDatabase(app);
     const auth = getAuth(app);
+    const counterRef = ref(db, 'visitors/count');
+    const countEl = document.getElementById('visitor-count');
 
-    // Sign in anonymously before writing
-    signInAnonymously(auth).then(() => {
-        const counterRef = ref(db, 'visitors/count');
-        set(counterRef, increment(1));
+    try {
+        await signInAnonymously(auth);
+        set(counterRef, increment(1)).catch((error) => {
+            console.error('Could not record this visit:', error);
+        });
+    } catch (error) {
+        console.error('Could not sign in to Firebase:', error);
+    }
 
-        const setupListener = () => {
-            onValue(ref(db, 'visitors/count'), (snapshot) => {
-                const countEl = document.getElementById('visitor-count');
-                if (countEl) countEl.textContent = snapshot.val() || 0;
-            });
-        };
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', setupListener);
-        } else {
-            setupListener();
-        }
-    }).catch(console.error);
+    onValue(counterRef, (snapshot) => {
+        countEl.textContent = String(snapshot.val() ?? 0);
+    }, (error) => {
+        console.error('Could not read the visitor count:', error);
+    });
 </script>
 </head>
 
@@ -111,7 +109,7 @@
             <div class="stat-label">% Commitment to Quality</div>
         </div>
         <div class="stat-card">
-            <div id="visitor-count" class="stat-number">0</div>
+            <div id="visitor-count" class="stat-number">&mdash;</div>
             <div class="stat-label">Live Visitors</div>
         </div>
         </section>

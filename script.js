@@ -164,7 +164,9 @@ function type() {
 }
 
 // Animated counters for stat cards
-const statNumbers = document.querySelectorAll(".stat-number");
+const statNumbers = document.querySelectorAll(
+  ".stat-number[data-start], .stat-number[data-count], .stat-number[data-target]"
+);
 let repoCount = null;
 
 async function fetchRepoCount() {
