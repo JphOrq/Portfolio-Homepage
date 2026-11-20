@@ -10,14 +10,39 @@
     <link rel="stylesheet" href="aboutStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="imagesRunning/html.png" type="image/x-icon" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JSS1B026X9"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
+    import { getDatabase, ref, onValue, set, increment } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-database.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
 
-    gtag('config', 'G-JSS1B026X9');
+    const firebaseConfig = {
+        apiKey: "AIzaSyDfJbEIDqeEUCbYZbycnHogC_0vTo5MnnU",
+        authDomain: "portfolio-counter-6f692.firebaseapp.com",
+        databaseURL: "https://portfolio-counter-6f692-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "portfolio-counter-6f692",
+        storageBucket: "portfolio-counter-6f692.firebasestorage.app",
+        messagingSenderId: "1040318112642",
+        appId: "1:1040318112642:web:1cab089f9e2ae05ae4659b",
+        measurementId: "G-WFB8DC0024"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Sign in anonymously before writing
+    signInAnonymously(auth).then(() => {
+      const counterRef = ref(db, 'visitors/count');
+      set(counterRef, increment(1));
+      
+      onValue(ref(db, 'visitors/count'), (snapshot) => {
+        const countEl = document.getElementById('visitor-count');
+        if (countEl) countEl.textContent = snapshot.val() || 0;
+      });
+    }).catch(console.error);
 </script>
 </head>
 
