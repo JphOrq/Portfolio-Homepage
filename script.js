@@ -1,3 +1,60 @@
+function initBackToTop() {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "back-to-top";
+  button.setAttribute("aria-label", "Back to top");
+  button.title = "Back to top";
+
+  const icon = document.createElement("img");
+  icon.src = "imagesRunning/up-arrow-10486739.png";
+  icon.alt = "";
+  button.append(icon);
+  document.body.append(button);
+
+  const credit = document.createElement("a");
+  credit.className = "back-to-top-credit";
+  credit.href = "https://www.flaticon.com/free-icon/up-arrow_10486739";
+  credit.textContent = "Up arrow icon from Flaticon";
+  document.querySelector(".main-footer p")?.append(credit);
+
+  const scrollRoot = document.scrollingElement;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let framePending = false;
+
+  function updateButton() {
+    framePending = false;
+    const { scrollTop, scrollHeight, clientHeight } = scrollRoot;
+    const scrollRange = scrollHeight - clientHeight;
+    const progress = scrollRange > 0 ? (scrollTop / scrollRange) * 100 : 0;
+    const revealThreshold = Math.min(360, clientHeight / 2);
+
+    button.classList.toggle("is-visible", scrollTop > revealThreshold);
+    button.style.setProperty("--scroll-progress", `${Math.max(0, Math.min(progress, 100))}%`);
+  }
+
+  function scheduleUpdate() {
+    if (framePending) return;
+    framePending = true;
+    requestAnimationFrame(updateButton);
+  }
+
+  button.addEventListener("click", () => {
+    document.querySelector(".nav-wrapper a")?.focus({ preventScroll: true });
+    window.scrollTo({
+      top: 0,
+      behavior: reducedMotion.matches ? "instant" : "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", scheduleUpdate);
+  window.addEventListener("pageshow", scheduleUpdate);
+  new ResizeObserver(scheduleUpdate).observe(document.body);
+  updateButton();
+}
+
+initBackToTop();
+
 const portfolioItems = document.querySelectorAll(".portfolio-item-wrapper");
 
 portfolioItems.forEach((portfolioItem) => {
