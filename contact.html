@@ -37,18 +37,17 @@
     const counterRef = ref(db, 'visitors/count');
     set(counterRef, increment(1));
 
-    // Wait for DOM
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => setupListener());
-    } else {
-      setupListener();
-    }
-
-    function setupListener() {
+    const setupListener = () => {
       onValue(ref(db, 'visitors/count'), (snapshot) => {
         const countEl = document.getElementById('visitor-count');
         if (countEl) countEl.textContent = snapshot.val() || 0;
       });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupListener);
+    } else {
+      setupListener();
     }
   }).catch(console.error);
 </script>
